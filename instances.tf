@@ -1,5 +1,5 @@
 resource "aws_instance" "fcc-web-serv" {
-  ami                    = data.aws_ami.amazon-ubuntu-arm-ami.id
+  ami                    = "ami-08193f17feb558e46"
   instance_type          = var.instnce-type
   key_name               = var.key-name
   subnet_id              = aws_subnet.fcc-pub-subnet-1.id
@@ -11,7 +11,7 @@ resource "aws_instance" "fcc-web-serv" {
 }
 
 resource "aws_instance" "fcc-priv-serv" {
-  ami                    = data.aws_ami.amazon-ubuntu-arm-ami.id
+  ami                    = "ami-08193f17feb558e46"
   instance_type          = var.instnce-type
   key_name               = var.key-name
   subnet_id              = aws_subnet.fcc-priv-subnet-1.id
