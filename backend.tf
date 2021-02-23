@@ -1,9 +1,11 @@
 terraform {
   backend "s3" {
-    bucket  = "acg-terraform-state-aws-ter-ans"
+    bucket  = "fcc-terraform-tfstate"
     key     = "tg-vpc/terraformstatefile"
-    region  = "eu-central-1"
+    region  = "eu-west-1"
     profile = "default"
   }
+  required_providers {
+    aws = ">=3.0.0"
+  }
 }
-

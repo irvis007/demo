@@ -16,6 +16,7 @@
 # created instance in public
 #
 # create nacl
+#https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Scenario2.html#nacl-rules-scenario-2
 
 # parametrize ami
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ami
