@@ -84,7 +84,7 @@ resource "aws_network_acl" "FCC-pub-Security-ACL" {
   }
 
   tags = {
-    Name = "FCC - My VPC ACL"
+    Name = "FCC - My VPC pub subnet NACL"
   }
 }
 
@@ -144,6 +144,6 @@ resource "aws_network_acl" "FCC-priv-Security-ACL" {
   }
 
   tags = {
-    Name = "FCC - My VPC ACL"
+    Name = "FCC - My VPC priv subnet NACL"
   }
 }

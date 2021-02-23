@@ -13,8 +13,8 @@
 - [x] created instance in priv
 - [x] created instance in public
 - [x] create nacl
-- [] go for modules
-- [] create multiple environments
+- [x] go for modules
+- [ ] create multiple environments
 
 ## Materials:
 - [Recommended network ACL rules for a VPC with public and private subnets (NAT)](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Scenario2.html#nacl-rules-scenario-2)
@@ -22,3 +22,4 @@
 - [hashicorp modules](https://www.terraform.io/docs/language/modules/develop/structure.html)
 - [What Are Terraform Modules and How Do They Work?](https://www.freecodecamp.org/news/terraform-modules-explained/)
 - [Deploying Multiple Environments with Terraform](https://www.capitalone.com/tech/software-engineering/deploying-multiple-environments-with-terraform/)
+- [Use Modules from the Registry](https://learn.hashicorp.com/tutorials/terraform/module-use?in=terraform/modules)
