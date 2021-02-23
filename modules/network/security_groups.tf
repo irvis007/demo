@@ -48,7 +48,7 @@ resource "aws_security_group" "fcc-priv-sg" {
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
-    cidr_blocks = [var.vpc-cidr]
+    cidr_blocks = [var.in_vpc_cidr]
   }
   egress {
     from_port   = 0

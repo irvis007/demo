@@ -6,7 +6,7 @@ terraform {
 
 # Create VPC
 resource "aws_vpc" "fcc-vpc" {
-  cidr_block           = var.vpc-cidr
+  cidr_block           = var.in_vpc_cidr
   enable_dns_hostnames = true
 
   tags = {
@@ -25,7 +25,7 @@ resource "aws_internet_gateway" "fcc-igw" {
 # Create public subnet
 resource "aws_subnet" "fcc-pub-subnet-1" {
   vpc_id                  = aws_vpc.fcc-vpc.id
-  cidr_block              = var.pub-subnet-cidr
+  cidr_block              = var.in_pub_subnet_cidr
   availability_zone       = data.aws_availability_zones.available.names[0]
   map_public_ip_on_launch = true
 
@@ -62,7 +62,7 @@ resource "aws_nat_gateway" "fcc-nat" {
 # Create private subnet
 resource "aws_subnet" "fcc-priv-subnet-1" {
   vpc_id            = aws_vpc.fcc-vpc.id
-  cidr_block        = var.priv-subnet-cidr
+  cidr_block        = var.in_priv_subnet_cidr
   availability_zone = data.aws_availability_zones.available.names[1]
 
   tags = {

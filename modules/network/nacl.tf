@@ -78,7 +78,7 @@ resource "aws_network_acl" "FCC-pub-Security-ACL" {
     protocol   = "tcp"
     rule_no    = 150
     action     = "allow"
-    cidr_block = var.priv-subnet-cidr
+    cidr_block = var.in_priv_subnet_cidr
     from_port  = 22
     to_port    = 22
   }
@@ -98,7 +98,7 @@ resource "aws_network_acl" "FCC-priv-Security-ACL" {
     protocol   = "tcp"
     rule_no    = 120
     action     = "allow"
-    cidr_block = var.pub-subnet-cidr
+    cidr_block = var.in_pub_subnet_cidr
     from_port  = 22
     to_port    = 22
   }
@@ -138,7 +138,7 @@ resource "aws_network_acl" "FCC-priv-Security-ACL" {
     protocol   = "tcp"
     rule_no    = 120
     action     = "allow"
-    cidr_block = var.pub-subnet-cidr
+    cidr_block = var.in_pub_subnet_cidr
     from_port  = 32768
     to_port    = 65535
   }
