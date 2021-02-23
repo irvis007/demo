@@ -1,3 +1,9 @@
+terraform {
+  required_providers {
+    aws = ">=3.0.0"
+  }
+}
+
 # Create VPC
 resource "aws_vpc" "fcc-vpc" {
   cidr_block           = var.vpc-cidr

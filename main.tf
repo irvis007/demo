@@ -1,27 +1,13 @@
-# created pub subnet
-# created igw
-# internet gateway attached to public subnet
-# route table to igw
-# route table attached to pub subnet
-#
-# created priv subnet
-# created nat gateway in pub su
-# nat gateway attached to priv subnet
-# route table to ngw
-# route table attached to priv subnet
-#
-#add SGs
-#
-# created instance in priv
-# created instance in public
-#
-# create nacl
-#https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Scenario2.html#nacl-rules-scenario-2
+module "instances" {
+  source = "./modules/instances"
 
-# parametrize ami
-# https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ami
+  pub_subnet_id              = module.network.aws-pub-subnet-id
+  pub_vpc_security_group_ids = module.network.aws-pub-sg-id
 
-#go for modules
+  priv_subnet_id              = module.network.aws-priv-subnet-id
+  priv_vpc_security_group_ids = module.network.aws-priv-sg-id
+}
 
-#create multi env
-#https://www.capitalone.com/tech/software-engineering/deploying-multiple-environments-with-terraform/
+module "network" {
+  source = "./modules/network"
+}
