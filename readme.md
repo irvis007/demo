@@ -1,27 +1,24 @@
-# created pub subnet
-# created igw
-# internet gateway attached to public subnet
-# route table to igw
-# route table attached to pub subnet
-#
-# created priv subnet
-# created nat gateway in pub su
-# nat gateway attached to priv subnet
-# route table to ngw
-# route table attached to priv subnet
-#
-#add SGs
-#
-# created instance in priv
-# created instance in public
-#
-# create nacl
-#https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Scenario2.html#nacl-rules-scenario-2
+## To do
+- [x] created pub subnet
+- [x] created igw
+- [x] internet gateway attached to public subnet
+- [x] route table to igw
+- [x] route table attached to pub subnet
+- [x] created priv subnet
+- [x] created nat gateway in pub su
+- [x] nat gateway attached to priv subnet
+- [x] route table to ngw
+- [x] route table attached to priv subnet
+- [x] add SGs
+- [x] created instance in priv
+- [x] created instance in public
+- [x] create nacl
+- [] go for modules
+- [] create multiple environments
 
-# parametrize ami
-# https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ami
-
-#go for modules
-
-#create multi env
-#https://www.capitalone.com/tech/software-engineering/deploying-multiple-environments-with-terraform/
+## Materials:
+- [Recommended network ACL rules for a VPC with public and private subnets (NAT)](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Scenario2.html#nacl-rules-scenario-2)
+- [Data Source: aws_ami](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ami)
+- [hashicorp modules](https://www.terraform.io/docs/language/modules/develop/structure.html)
+- [What Are Terraform Modules and How Do They Work?](https://www.freecodecamp.org/news/terraform-modules-explained/)
+- [Deploying Multiple Environments with Terraform](https://www.capitalone.com/tech/software-engineering/deploying-multiple-environments-with-terraform/)
