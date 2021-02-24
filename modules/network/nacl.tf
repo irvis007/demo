@@ -1,7 +1,7 @@
 # create VPC Network access control list for pub subnets
-resource "aws_network_acl" "FCC-pub-Security-ACL" {
-  vpc_id     = aws_vpc.fcc-vpc.id
-  subnet_ids = [aws_subnet.fcc-pub-subnet-1.id]
+resource "aws_network_acl" "pub-Security-ACL" {
+  vpc_id     = aws_vpc.vpc.id
+  subnet_ids = [aws_subnet.pub-subnet-1.id]
 
   # allow ingress, HTTP, port 80
   ingress {
@@ -83,15 +83,17 @@ resource "aws_network_acl" "FCC-pub-Security-ACL" {
     to_port    = 22
   }
 
-  tags = {
-    Name = "FCC - My VPC pub subnet NACL"
-  }
+  tags = merge(var.common_tags, map(
+    "Name", "${var.name_prefix} - pub subnet NACL"
+    )
+  )
+
 }
 
 # create VPC Network access control list for priv subnets
-resource "aws_network_acl" "FCC-priv-Security-ACL" {
-  vpc_id     = aws_vpc.fcc-vpc.id
-  subnet_ids = [aws_subnet.fcc-priv-subnet-1.id]
+resource "aws_network_acl" "priv-Security-ACL" {
+  vpc_id     = aws_vpc.vpc.id
+  subnet_ids = [aws_subnet.priv-subnet-1.id]
 
   # allow ingress, SSH, from pub-subnet ips
   ingress {
@@ -143,7 +145,9 @@ resource "aws_network_acl" "FCC-priv-Security-ACL" {
     to_port    = 65535
   }
 
-  tags = {
-    Name = "FCC - My VPC priv subnet NACL"
-  }
+  tags = merge(var.common_tags, map(
+    "Name", "${var.name_prefix} - priv subnet NACL"
+    )
+  )
+
 }

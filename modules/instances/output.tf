@@ -1,12 +1,12 @@
 #
-output "fcc-web-serv-tags" {
-  value = aws_instance.fcc-web-serv[*].tags
+output "web-serv-tags" {
+  value = aws_instance.web-serv[*].tags
 }
 
-output "fcc-public-ip" {
-  value = aws_instance.fcc-web-serv[*].public_ip
+output "public_ips" {
+  value = aws_instance.web-serv[*].public_ip
 }
 
-output "fcc-priv-instances-ips" {
-  value = aws_instance.fcc-priv-serv[*].private_ip
+output "priv_instances_ips" {
+  value = aws_instance.priv-serv[*].private_ip
 }

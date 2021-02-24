@@ -1,11 +1,11 @@
 output "pub-instance-tags" {
-  value = module.instances.fcc-web-serv-tags
+  value = module.instances.web-serv-tags
 }
 
-output "fcc-public-ip" {
-  value = module.instances.fcc-public-ip
+output "public-ip" {
+  value = module.instances.public_ips
 }
 
-output "fcc-priv-instances-ips" {
-  value = module.instances.fcc-public-ip
+output "priv-instances-ips" {
+  value = module.instances.priv_instances_ips
 }

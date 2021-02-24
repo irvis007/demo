@@ -3,10 +3,10 @@
 # HTTP/S to a subnet
 # and any other communication from priv subnet
 # outgoing communication
-resource "aws_security_group" "fcc-pub-sg" {
-  name        = "fcc-pub-allow_ssh-https_sg"
-  description = "Allow SSH/HTTP/S inbound connections"
-  vpc_id      = aws_vpc.fcc-vpc.id
+resource "aws_security_group" "pub-sg" {
+  name        = "${var.name_prefix}-pub-allow_ssh-https_sg"
+  description = "${var.name_prefix}-Allow SSH/HTTP/S inbound connections"
+  vpc_id      = aws_vpc.vpc.id
 
   ingress {
     from_port   = 22
@@ -29,9 +29,11 @@ resource "aws_security_group" "fcc-pub-sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  tags = {
-    Name = "FCC - Allow SSH/HTTP/S inbound connections"
-  }
+  tags = merge(var.common_tags, map(
+    "Name", "${var.name_prefix} - public SG"
+    )
+  )
+
 }
 
 # for a private subnet
@@ -39,10 +41,10 @@ resource "aws_security_group" "fcc-pub-sg" {
 # HTTP/S to a subnet
 # and any other communication from priv subnet
 # outgoing communication
-resource "aws_security_group" "fcc-priv-sg" {
-  name        = "fcc-priv-allow_ssh-https_sg"
-  description = "allow traffic from pub"
-  vpc_id      = aws_vpc.fcc-vpc.id
+resource "aws_security_group" "priv-sg" {
+  name        = "${var.name_prefix}-priv-allow_ssh-https_sg"
+  description = "${var.name_prefix}-allow traffic from pub"
+  vpc_id      = aws_vpc.vpc.id
 
   ingress {
     from_port   = 0
@@ -56,4 +58,9 @@ resource "aws_security_group" "fcc-priv-sg" {
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
+
+  tags = merge(var.common_tags, map(
+    "Name", "${var.name_prefix} - private SG"
+    )
+  )
 }
